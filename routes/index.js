@@ -9,9 +9,11 @@ const connection = mysql.createConnection({
   database : 'timer'
 });
 
+const app = express();
+app.set('port', 3000);
+
 connection.connect();
 
-// router.set('port', 3000);
 
 
 /* GET home page. */
@@ -26,13 +28,17 @@ router.get("/timer/", (req, res) => {
     res.send("Hello World");
 });
 
-router.get('/timerlist', (req, res) => {
+app.get('/timerlist', (req, res) => {
   
   connection.query('SELECT * from timer_list', (error, rows, fields) => {
 //    if (error) throw error;
     console.log('timer list is: ', rows);
     res.send(rows);
   });
+});
+
+app.listen(app.get('port'), () => {
+  console.log('Express server listening on port ' + app.get('port'));
 });
 
 module.exports = router;
