@@ -4,12 +4,15 @@ var router = express.Router();
 var mysql      = require('mysql');
 const connection = mysql.createConnection({
   host     : 'svc.sel3.cloudtype.app:31727',
-  user     : 'root',
-  password : 'P@s$w0rd',
+  user     : 'holdem',
+  password : 'Qswer!23',
   database : 'timer'
 });
 
 connection.connect();
+
+router.set('port', 3000);
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
