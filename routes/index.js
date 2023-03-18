@@ -4,8 +4,8 @@ var router = express.Router();
 var mysql      = require('mysql');
 const connection = mysql.createConnection({
   host     : 'svc.sel3.cloudtype.app:31727',
-  user     : 'root',
-  password : 'P@s$w0rd',
+  user     : 'holdem',
+  password : 'Qswer!23',
   database : 'timer'
 });
 
@@ -24,7 +24,7 @@ router.get("/timer/", (req, res) => {
 router.get('/timerlist', (req, res) => {
   connection.connect();
   connection.query('SELECT * from timer_list', (error, rows) => {
-    if (error) throw error;
+//    if (error) throw error;
     console.log('timer list is: ', rows);
     res.send(rows);
   });
