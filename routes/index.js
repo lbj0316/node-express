@@ -4,10 +4,12 @@ var router = express.Router();
 var mysql      = require('mysql');
 const connection = mysql.createConnection({
   host     : 'svc.sel3.cloudtype.app:31727',
-  user     : 'holdem',
-  password : 'Qswer!23',
+  user     : 'root',
+  password : 'P@s$w0rd',
   database : 'timer'
 });
+
+connection.connect();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -22,13 +24,12 @@ router.get("/timer/", (req, res) => {
 });
 
 router.get('/timerlist', (req, res) => {
-  connection.connect();
-  connection.query('SELECT * from timer_list', (error, rows) => {
+  
+  connection.query('SELECT * from timer_list', (error, rows, fields) => {
 //    if (error) throw error;
     console.log('timer list is: ', rows);
     res.send(rows);
   });
-  connection.end();
 });
 
 module.exports = router;
