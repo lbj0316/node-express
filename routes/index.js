@@ -15,7 +15,7 @@ router.get("/timer/", (req, res) => {
     res.send("Hello World");
 });
 
-app.get('/timerlist', (req, res) => {
+router.get('/timerlist', (req, res) => {
   connection.query('SELECT * from timer_list', (error, rows) => {
     if (error) throw error;
     console.log('timer list is: ', rows);
