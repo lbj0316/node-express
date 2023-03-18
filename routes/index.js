@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
 
 connection.connect();
 
-router.set('port', 3000);
+// router.set('port', 3000);
 
 
 /* GET home page. */
