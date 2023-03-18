@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 // const dbconfig   = require('./config/database.js');
+var mysql      = require('mysql');
 const connection = mysql.createConnection({
   host     : 'svc.sel3.cloudtype.app:31727',
   user     : 'holdem',
